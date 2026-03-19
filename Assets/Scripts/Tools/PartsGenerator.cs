@@ -15,6 +15,14 @@ public class PartsGenerator : MonoBehaviour
 	[SerializeField] private Transform leftHipParent;
 	[Header("Pelvis")]
 	[SerializeField] private Transform pelvisParent;
+	[Header("Right arm")]
+	[SerializeField] private Transform rightPalmParent;
+	[SerializeField] private Transform rightForeArmParent;
+	[SerializeField] private Transform rightShoulderParent;
+	[Header("Left arm")]
+	[SerializeField] private Transform leftPalmParent;
+	[SerializeField] private Transform leftForeArmParent;
+	[SerializeField] private Transform leftShoulderParent;
 
 	[Header("Robot parts ")]
 	[Header("Right leg")]
@@ -28,6 +36,15 @@ public class PartsGenerator : MonoBehaviour
 	[Header("Pelvis")]
 	[SerializeField] private GameObject[] pelvises;
 	[SerializeField] private GameObject mainPelvis;
+	[Header("Right arm")]
+	[SerializeField] private GameObject[] rightPalms;
+	[SerializeField] private GameObject[] rightForeArms;
+	[SerializeField] private GameObject[] rightShoulders;
+	[Header("Left arm")]
+	[SerializeField] private GameObject[] leftPalms;
+	[SerializeField] private GameObject[] leftForeArms;
+	[SerializeField] private GameObject[] leftShoulders;
+
 
 	void Start()
 	{
@@ -50,12 +67,27 @@ public class PartsGenerator : MonoBehaviour
 		CreatePart(leftHipParent, leftHips);
 
 		CreatePart(pelvisParent, pelvises);
+		CreatePart(pelvisParent, mainPelvis);
+
+		CreatePart(rightPalmParent, rightPalms);
+		CreatePart(rightForeArmParent, rightForeArms);
+		CreatePart(rightShoulderParent, rightShoulders);
+
+		CreatePart(leftPalmParent, leftPalms);
+		CreatePart(leftForeArmParent, leftForeArms);
+		CreatePart(leftShoulderParent, leftShoulders);
 	}
 	private void CreatePart(Transform partsBone, GameObject[] parts)
 	{
 		Vector3 curPos = transform.position;
 		GameObject basePartRnd = parts[Random.Range(0, parts.Length)];
 		GameObject newPart = Instantiate(basePartRnd, curPos, basePartRnd.transform.rotation);
+		newPart.transform.parent = partsBone;
+	}
+	private void CreatePart(Transform partsBone, GameObject part)
+	{
+		Vector3 curPos = transform.position;
+		GameObject newPart = Instantiate(part, curPos, part.transform.rotation);
 		newPart.transform.parent = partsBone;
 	}
 }
