@@ -23,6 +23,10 @@ public class PartsGenerator : MonoBehaviour
 	[SerializeField] private Transform leftPalmParent;
 	[SerializeField] private Transform leftForeArmParent;
 	[SerializeField] private Transform leftShoulderParent;
+	[Header("Chest")]
+	[SerializeField] private Transform chest;
+	[Header("Head")]
+	[SerializeField] private Transform head;
 
 	[Header("Robot parts ")]
 	[Header("Right leg")]
@@ -44,6 +48,10 @@ public class PartsGenerator : MonoBehaviour
 	[SerializeField] private GameObject[] leftPalms;
 	[SerializeField] private GameObject[] leftForeArms;
 	[SerializeField] private GameObject[] leftShoulders;
+	[Header("Chest")]
+	[SerializeField] private GameObject[] chests;
+	[Header("Head")]
+	[SerializeField] private GameObject[] heads;
 
 
 	void Start()
@@ -76,6 +84,10 @@ public class PartsGenerator : MonoBehaviour
 		CreatePart(leftPalmParent, leftPalms);
 		CreatePart(leftForeArmParent, leftForeArms);
 		CreatePart(leftShoulderParent, leftShoulders);
+
+		CreatePart(chest, chests);
+
+		CreatePart(head, heads);
 	}
 	private void CreatePart(Transform partsBone, GameObject[] parts)
 	{

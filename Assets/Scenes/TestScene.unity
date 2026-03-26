@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -122,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &41464616 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3321919801592875672, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
+  m_PrefabInstance: {fileID: 1239403291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &106987968 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6502182839619065283, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
@@ -236,14 +242,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -2072040086291044643, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
   m_PrefabInstance: {fileID: 1239403291}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &632061110 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -3432401550182100168, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
+  m_PrefabInstance: {fileID: 1239403291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &802337872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2559285840627121667, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
-  m_PrefabInstance: {fileID: 1239403291}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1199850578 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7078722787440015773, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
   m_PrefabInstance: {fileID: 1239403291}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1239403291
@@ -343,6 +349,11 @@ Transform:
 --- !u!4 &1401665880 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 608321761475470972, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
+  m_PrefabInstance: {fileID: 1239403291}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1408637496 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6000407479487422213, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
   m_PrefabInstance: {fileID: 1239403291}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1502399851 stripped
@@ -478,10 +489,12 @@ MonoBehaviour:
   pelvisParent: {fileID: 373723471}
   rightPalmParent: {fileID: 1239403294}
   rightForeArmParent: {fileID: 1239403293}
-  rightShoulderParent: {fileID: 1199850578}
+  rightShoulderParent: {fileID: 1408637496}
   leftPalmParent: {fileID: 106987968}
   leftForeArmParent: {fileID: 1502399851}
-  leftShoulderParent: {fileID: 2058566206}
+  leftShoulderParent: {fileID: 632061110}
+  chest: {fileID: 2111131081}
+  head: {fileID: 41464616}
   rightFoots:
   - {fileID: 919132149155446097, guid: 0d19c068df502ed419614b807899db8c, type: 3}
   - {fileID: 919132149155446097, guid: df832bb3528a48d47ba28eae111cb870, type: 3}
@@ -541,11 +554,19 @@ MonoBehaviour:
   - {fileID: 919132149155446097, guid: 73a4ec9ad87098b448f9509f1b7da7d1, type: 3}
   - {fileID: 919132149155446097, guid: e3b9432e7ac829d43976c6c493313527, type: 3}
   - {fileID: 919132149155446097, guid: c6c89313746bcc8499251d70ab0d984b, type: 3}
---- !u!4 &2058566206 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -6803169544883306252, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
-  m_PrefabInstance: {fileID: 1239403291}
-  m_PrefabAsset: {fileID: 0}
+  chests:
+  - {fileID: 919132149155446097, guid: 2f51f09d3eca257438a2a867cb1aed95, type: 3}
+  - {fileID: 919132149155446097, guid: 98dc9e950089d984f90e48c9a2e6beca, type: 3}
+  - {fileID: 919132149155446097, guid: cc9157dd526115b4c8dc853ee4f91382, type: 3}
+  - {fileID: 919132149155446097, guid: 6f0d3ed2046aadf4f9b90d8af97d53f8, type: 3}
+  - {fileID: 919132149155446097, guid: 9aa06e833a2cf7f4d95a55e77adb0224, type: 3}
+  heads:
+  - {fileID: 919132149155446097, guid: 6d9cf72ade8fe0f42b5adda2f4c7ba58, type: 3}
+  - {fileID: 919132149155446097, guid: 1b246e97e8d9f664c9b13acc3e3e2086, type: 3}
+  - {fileID: 919132149155446097, guid: 55649c2845f18af4b996f609a11c86e6, type: 3}
+  - {fileID: 919132149155446097, guid: a19e3049228fb5a428b22e6a21b5ef93, type: 3}
+  - {fileID: 919132149155446097, guid: 32a64143d7ffeb64399a04ff6448121e, type: 3}
+  - {fileID: 919132149155446097, guid: 09b021bf869fbee49a8c2cfb58011f31, type: 3}
 --- !u!1001 &2103949010
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -603,6 +624,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b11f67b2042b6d54b8d83b36dbd75a8c, type: 3}
+--- !u!4 &2111131081 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 366175167995203695, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
+  m_PrefabInstance: {fileID: 1239403291}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &67638120326511498
 BoxCollider:
   m_ObjectHideFlags: 0
