@@ -102,4 +102,9 @@ public class PartsGenerator : MonoBehaviour
 		GameObject newPart = Instantiate(part, curPos, part.transform.rotation);
 		newPart.transform.parent = partsBone;
 	}
+
+	private void BlowUpParts()
+	{
+
+	}
 }
