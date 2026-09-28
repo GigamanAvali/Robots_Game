@@ -6,6 +6,7 @@ public class Rifle : MonoBehaviour
 {
 	[SerializeField] private LaserSight laserSight;
 	private bool isShowed = false;
+	private int rayCount = 1;
 
 	private void Update()
 	{
@@ -14,9 +15,26 @@ public class Rifle : MonoBehaviour
 
 	private void ShowWeapon()
 	{
-		Debug.Log("ShowWeapon");
-		isShowed = !isShowed;
-		laserSight.gameObject.SetActive(isShowed);
+		//Debug.Log("ShowWeapon");
+		if (isShowed)
+		{
+			rayCount++;
+			if (rayCount > 3)
+			{
+				isShowed = false;
+				laserSight.gameObject.SetActive(isShowed);
+				rayCount = 1;
+				return;
+			}
+			laserSight.SetRayCount(rayCount);
+			
+		}
+		else
+		{
+			isShowed = true;
+			laserSight.gameObject.SetActive(isShowed);
+			laserSight.SetRayCount(rayCount);
+		}
 	}
 
 }
