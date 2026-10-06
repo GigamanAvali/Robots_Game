@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserSight : MonoBehaviour
+public class LaserSight1 : MonoBehaviour
 {
+	 
 	[SerializeField] private Transform muzzle;
 	[SerializeField] private LineRenderer trajectory;
 	[SerializeField] private float sightRange = 100;
@@ -11,13 +12,10 @@ public class LaserSight : MonoBehaviour
 	private bool attackStart = false;
 	private int rayCount = 1;
 
-	private List<Vector3> points = new List<Vector3>();
 
 	private void OnDisable()
 	{
-		points.Clear();
-		points.Add(muzzle.position);
-		UpdateTrajectory(points.ToArray());
+
 	}
 
 	private void Update()
@@ -31,8 +29,6 @@ public class LaserSight : MonoBehaviour
 
 	private void CastRay()
 	{
-		points.Clear();
-		points.Add(muzzle.position);
 		Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hit1, sightRange);
 		if (Physics.Raycast(muzzle.position, muzzle.forward, out hits[0], sightRange))
 		{
@@ -42,9 +38,9 @@ public class LaserSight : MonoBehaviour
 			Vector3 incomingDirection = hits[0].point - muzzle.position; // Входящий вектор 
 			Vector3 reflectedDir = Vector3.Reflect(incomingDirection.normalized, hitNormal); // Отраженный вектор
 			//Самый первый вектор из дула в первую точку попадания
-			//Debug.DrawLine(muzzle.position, hits[0].point, Color.red);
+			Debug.DrawLine(muzzle.position, hits[0].point, Color.red);
 			
-			points.Add(hits[0].point);
+			
 			//UpdateTrajectory(points.ToArray());
 			//DrawRays(rayCount, reflectedDir);
 			
@@ -52,9 +48,7 @@ public class LaserSight : MonoBehaviour
 		}
 		else
 		{
-			//Debug.DrawLine(muzzle.position, muzzle.position + muzzle.forward * sightRange, Color.red);
-			points.Add(muzzle.position + muzzle.forward * sightRange);
-			UpdateTrajectory(points.ToArray());
+			Debug.DrawLine(muzzle.position, muzzle.position + muzzle.forward * sightRange, Color.red);
 		}
 	}
 
@@ -70,7 +64,6 @@ public class LaserSight : MonoBehaviour
 	{
 		if (rayCount == 1)
 		{
-			UpdateTrajectory(points.ToArray());
 			return;
 		}
 		//Debug.Log(rayCount);
@@ -86,26 +79,20 @@ public class LaserSight : MonoBehaviour
 				// Нормаль второй поверхности
 				//Debug.DrawLine(hits[1].point, hits[1].point + hits[1].normal, Color.yellow);
 				// Отражённый луч
-				//Debug.DrawLine(hits[0].point, hits[1].point, Color.red);
-				points.Add(hits[1].point);
+				Debug.DrawLine(hits[0].point, hits[1].point, Color.red);
 				if (rayCount == 2)
 				{
-					UpdateTrajectory(points.ToArray());
 					return;
 				}
 					
 				Vector3 incomingDirection1 = hits[1].point - hits[0].point; // Второй входящий вектор 
 				// Второй отражённый луч
 				Vector3 reflectedDir1 = Vector3.Reflect(incomingDirection1.normalized, hits[1].normal);
-				//Debug.DrawLine(hits[1].point, hits[1].point + reflectedDir1 * sightRange, Color.red);
-				points.Add(hits[1].point + reflectedDir1 * sightRange);
-				UpdateTrajectory(points.ToArray());
+				Debug.DrawLine(hits[1].point, hits[1].point + reflectedDir1 * sightRange, Color.red);
 			}
 			else
 			{
-				//Debug.DrawLine(hits[0].point, hits[0].point + reflectedDir * sightRange, Color.red);
-				points.Add(hits[0].point + reflectedDir * sightRange);
-				UpdateTrajectory(points.ToArray());
+				Debug.DrawLine(hits[0].point, hits[0].point + reflectedDir * sightRange, Color.red);
 			}
 		}
 	}
@@ -129,11 +116,4 @@ public class LaserSight : MonoBehaviour
 		}
 	}
 
-
-	private void UpdateTrajectory(Vector3[] points)
-	{
-		//Debug.Log(points.Length);
-		trajectory.SetPositions(points);
-		trajectory.positionCount = points.Length;
-	}
 }
