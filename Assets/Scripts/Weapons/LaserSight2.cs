@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserSight1 : MonoBehaviour
+public class LaserSight2 : MonoBehaviour
 {
 	 
 	[SerializeField] private Transform muzzle;
@@ -57,16 +57,17 @@ public class LaserSight1 : MonoBehaviour
 		if (count > 4)
 			count = 4;
 		rayCount = count;
-
+		Debug.Log($"SetRayCount {rayCount}");
 	}
 
 	private void DrawRays()
 	{
+		Debug.Log($"DrawRays {rayCount}");
 		if (rayCount == 1)
 		{
 			return;
 		}
-		//Debug.Log(rayCount);
+		Debug.Log(rayCount);
 		if (attackStart)
 		{
 			// Первая нормаль
@@ -84,8 +85,7 @@ public class LaserSight1 : MonoBehaviour
 				{
 					return;
 				}
-					
-				Vector3 incomingDirection1 = hits[1].point - hits[0].point; // Второй входящий вектор 
+				Vector3 incomingDirection1 = hits[0].point - hits[1].point; // Второй входящий вектор 
 				// Второй отражённый луч
 				Vector3 reflectedDir1 = Vector3.Reflect(incomingDirection1.normalized, hits[1].normal);
 				Debug.DrawLine(hits[1].point, hits[1].point + reflectedDir1 * sightRange, Color.red);
