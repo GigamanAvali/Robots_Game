@@ -984,6 +984,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958969374}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &976758156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5114978518249991014, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
+  m_PrefabInstance: {fileID: 162190030252077638}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1055602078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -3432401550182100168, guid: 39435b4c650551a4eaa0d6d012a48a01, type: 3}
@@ -2530,6 +2535,89 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 366175167995203695, guid: 3af352c2f16575d4d9b131f96b5c10ba, type: 3}
   m_PrefabInstance: {fileID: 1239403291}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2118523746
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2118523747}
+  - component: {fileID: 2118523748}
+  m_Layer: 6
+  m_Name: WeaponCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2118523747
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118523746}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 976758156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &2118523748
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118523746}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 128
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!65 &67638120326511498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2635,6 +2723,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5663348198221377506, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
+      propertyPath: m_Radius
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 5868857865301863619, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
       propertyPath: m_ShowToolkit
       value: 0
@@ -2651,6 +2743,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8918405706434823615, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
+      propertyPath: near clip plane
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8918405706434823615, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 119
+      objectReference: {fileID: 0}
     - target: {fileID: 9022435364545361400, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -2662,7 +2762,10 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 4700341180300985482, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5114978518249991014, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 2118523747}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
 --- !u!33 &179994613551809716

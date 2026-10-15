@@ -29,7 +29,6 @@ public class LaserSight2 : MonoBehaviour
 
 	private void CastRay()
 	{
-		Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hit1, sightRange);
 		if (Physics.Raycast(muzzle.position, muzzle.forward, out hits[0], sightRange))
 		{
 			//Debug.Log("hit " + hit[0].transform.name);
@@ -39,8 +38,6 @@ public class LaserSight2 : MonoBehaviour
 			Vector3 reflectedDir = Vector3.Reflect(incomingDirection.normalized, hitNormal); // Отраженный вектор
 			//Самый первый вектор из дула в первую точку попадания
 			Debug.DrawLine(muzzle.position, hits[0].point, Color.red);
-			
-			
 			//UpdateTrajectory(points.ToArray());
 			//DrawRays(rayCount, reflectedDir);
 			
