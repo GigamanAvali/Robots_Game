@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Rifle : MonoBehaviour
 {
-	[SerializeField] private LaserSight2 laserSight;
+	[SerializeField] private LaserSight laserSight;
 	private bool isShowed = false;
 	private int rayCount = 1;
 
