@@ -73,8 +73,6 @@ public class LaserSight : MonoBehaviour
 		if (count > 4)
 			count = 4;
 		rayCount = count;
-		if (rayCount == 0)
-			HideDecals();
 	}
 
 	private void DrawRays()
