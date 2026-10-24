@@ -6,18 +6,24 @@ public class LaserSight : MonoBehaviour
 {
 	[SerializeField] private Transform muzzle;
 	[SerializeField] private LineRenderer trajectory;
+	[SerializeField] private GameObject decal;
 	[SerializeField] private float sightRange = 100;
 	private RaycastHit[] hits = new RaycastHit[4];
+	private GameObject[] decals = new GameObject[4];
 	private bool attackStart = false;
 	private int rayCount = 1;
 
 	private List<Vector3> points = new List<Vector3>();
-
+	private void Start()
+	{
+		CreateDecals();
+	}
 	private void OnDisable()
 	{
 		points.Clear();
 		points.Add(muzzle.position);
 		UpdateTrajectory(points.ToArray());
+		HideDecals();
 	}
 
 	private void Update()
@@ -39,12 +45,15 @@ public class LaserSight : MonoBehaviour
 			//Debug.Log("hit " + hit[0].transform.name);
 			attackStart = true;
 			Vector3 hitNormal = hits[0].normal; // Нормаль от точки попадания
-			Vector3 incomingDirection = hits[0].point - muzzle.position; // Входящий вектор 
+			Vector3 hitPoint = hits[0].point; // Нормаль от точки попадания
+			Vector3 incomingDirection = hitPoint - muzzle.position; // Входящий вектор 
 			Vector3 reflectedDir = Vector3.Reflect(incomingDirection.normalized, hitNormal); // Отраженный вектор
 			//Самый первый вектор из дула в первую точку попадания
 			//Debug.DrawLine(muzzle.position, hits[0].point, Color.red);
-			
-			points.Add(hits[0].point);
+			decals[0].SetActive(true);
+			decals[0].transform.position = hitPoint + hitNormal * 0.05f;
+			decals[0].transform.rotation = Quaternion.LookRotation(hitNormal);
+			points.Add(hitPoint);
 			//UpdateTrajectory(points.ToArray());
 			//DrawRays(rayCount, reflectedDir);
 			
@@ -52,6 +61,7 @@ public class LaserSight : MonoBehaviour
 		}
 		else
 		{
+			decals[0].SetActive(false);
 			//Debug.DrawLine(muzzle.position, muzzle.position + muzzle.forward * sightRange, Color.red);
 			points.Add(muzzle.position + muzzle.forward * sightRange);
 			UpdateTrajectory(points.ToArray());
@@ -63,7 +73,8 @@ public class LaserSight : MonoBehaviour
 		if (count > 4)
 			count = 4;
 		rayCount = count;
-
+		if (rayCount == 0)
+			HideDecals();
 	}
 
 	private void DrawRays()
@@ -135,5 +146,23 @@ public class LaserSight : MonoBehaviour
 		//Debug.Log(points.Length);
 		trajectory.SetPositions(points);
 		trajectory.positionCount = points.Length;
+	}
+
+	private void CreateDecals()
+	{
+		for (int i = 0; i < decals.Length; i++)
+		{
+			var newDecal = Instantiate(decal);
+			newDecal.SetActive(false);
+			decals[i] = newDecal;
+		}
+	}
+
+	private void HideDecals()
+	{
+		for (int i = 0; i < decals.Length; i++)
+		{
+			decals[i]?.SetActive(false);
+		}
 	}
 }
