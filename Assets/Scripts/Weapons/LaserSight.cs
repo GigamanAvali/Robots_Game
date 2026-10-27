@@ -51,7 +51,7 @@ public class LaserSight : MonoBehaviour
 			//Самый первый вектор из дула в первую точку попадания
 			//Debug.DrawLine(muzzle.position, hits[0].point, Color.red);
 			decals[0].SetActive(true);
-			decals[0].transform.position = hitPoint + hitNormal * 0.05f;
+			decals[0].transform.position = hitPoint + hitNormal * 0.001f;
 			decals[0].transform.rotation = Quaternion.LookRotation(hitNormal);
 			points.Add(hitPoint);
 			//UpdateTrajectory(points.ToArray());
@@ -160,7 +160,10 @@ public class LaserSight : MonoBehaviour
 	{
 		for (int i = 0; i < decals.Length; i++)
 		{
-			decals[i]?.SetActive(false);
+			if (decals[i] != null)
+			{
+				decals[i].SetActive(false);
+			}
 		}
 	}
 }
