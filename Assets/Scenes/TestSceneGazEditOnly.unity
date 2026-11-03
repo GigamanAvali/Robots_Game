@@ -1229,7 +1229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitPrefab: {fileID: 7226583673155636401, guid: a2ab56839e1c9504ea9d141e95d0b16b, type: 3}
-  decalPrefab: {fileID: 875364295200494144, guid: 97d25d533b049eb49adf02bcf3c26cad, type: 3}
+  decalPrefab: {fileID: 875364295200494144, guid: ed2425fcbcf4e8649bc0097130fbb5a0, type: 3}
   Damage: 1
 --- !u!135 &1050849023
 SphereCollider:
@@ -2410,7 +2410,7 @@ Transform:
   m_GameObject: {fileID: 1517307420}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.71, y: 3.48, z: -5.53}
+  m_LocalPosition: {x: -3.71, y: 9.33, z: 5.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8300,6 +8300,18 @@ PrefabInstance:
       propertyPath: muzzle
       value: 
       objectReference: {fileID: 2105230843}
+    - target: {fileID: 7004134992420940748, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
+      propertyPath: audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 792671c6b3a6ccf42ba50c9b04e09418, type: 3}
+    - target: {fileID: 7004134992420940748, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
+      propertyPath: audioClip1
+      value: 
+      objectReference: {fileID: 8300000, guid: e39bb0a62c8c22847aac464d950a0bb9, type: 3}
+    - target: {fileID: 7004134992420940748, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
+      propertyPath: audioClip2
+      value: 
+      objectReference: {fileID: 8300000, guid: 792671c6b3a6ccf42ba50c9b04e09418, type: 3}
     - target: {fileID: 7004134992420940748, guid: aa55c71fe26ef4342b6642b96792e772, type: 3}
       propertyPath: laserSight
       value: 

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8948559610719105074}
   - component: {fileID: 6021023959628795648}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Shot-decal-1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

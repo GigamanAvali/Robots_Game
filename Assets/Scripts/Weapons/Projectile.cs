@@ -34,8 +34,9 @@ public class Projectile : MonoBehaviour
 			//GameObject decal = Instantiate(decalPrefab, transform.position, Quaternion.LookRotation(collisionNormal));
 			//если материал односторонний нужно развернуть на 180 градусов
 			Vector3 axis = Vector3.up; // Ось вращения (Y)
-			Vector3 rotatedNormal = Quaternion.AngleAxis(180f, axis) * collisionNormal;
-			GameObject decal = Instantiate(decalPrefab, transform.position, Quaternion.LookRotation(rotatedNormal));
+			//Vector3 rotatedNormal = Quaternion.AngleAxis(180f, axis) * collisionNormal;
+			//GameObject decal = Instantiate(decalPrefab, transform.position, Quaternion.LookRotation(rotatedNormal));
+			GameObject decal = Instantiate(decalPrefab, transform.position, Quaternion.LookRotation(collisionNormal));
 			decal.SetActive(true);
 			decal.transform.parent = collision.transform;
 			Destroy(decal, 60);
