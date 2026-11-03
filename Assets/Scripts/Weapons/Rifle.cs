@@ -23,6 +23,7 @@ public class Rifle : MonoBehaviour
 			{
 				isShowed = false;
 				laserSight.gameObject.SetActive(isShowed);
+				//laserSight.HideDevals();
 				rayCount = 1;
 				return;
 			}
