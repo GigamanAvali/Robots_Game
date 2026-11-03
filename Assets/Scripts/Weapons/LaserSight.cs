@@ -7,6 +7,7 @@ public class LaserSight : MonoBehaviour
 	[SerializeField] private Transform muzzle;
 	[SerializeField] private LineRenderer trajectory;
 	[SerializeField] private GameObject decal;
+	[SerializeField] private GameObject projectile;
 	[SerializeField] private float sightRange = 100;
 	private RaycastHit[] hits = new RaycastHit[4];
 	private GameObject[] decals = new GameObject[4];
