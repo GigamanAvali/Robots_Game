@@ -58,6 +58,10 @@ public class Rifle : MonoBehaviour
 			appData = GameObject.FindObjectOfType<AppData>();
 		if (!isAtacking)
 		{
+			// Ускорить воспроизведение в 1.5 раза
+			//audioSource.pitch = 1.5f;
+			// Или замедлить в 2 раза
+			//audioSource.pitch = 0.5f; 
 			audioSource.Play();
 			isAtacking = true;
 			bullet = appData.GetBulletFromPool(muzzle.position + muzzle.forward);
