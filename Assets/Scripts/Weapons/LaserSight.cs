@@ -7,6 +7,7 @@ public class LaserSight : MonoBehaviour
 	[SerializeField] private Transform muzzle;
 	[SerializeField] private LineRenderer trajectory;
 	[SerializeField] private GameObject decal;
+	[SerializeField] private GameObject projectile;
 	[SerializeField] private float sightRange = 100;
 	private RaycastHit[] hits = new RaycastHit[4];
 	private GameObject[] decals = new GameObject[4];
@@ -37,6 +38,7 @@ public class LaserSight : MonoBehaviour
 
 	private void CastRay()
 	{
+
 		points.Clear();
 		points.Add(muzzle.position);
 		Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hit1, sightRange);
@@ -50,9 +52,12 @@ public class LaserSight : MonoBehaviour
 			Vector3 reflectedDir = Vector3.Reflect(incomingDirection.normalized, hitNormal); // Отраженный вектор
 			//Самый первый вектор из дула в первую точку попадания
 			//Debug.DrawLine(muzzle.position, hits[0].point, Color.red);
+			
+
 			decals[0].SetActive(true);
 			decals[0].transform.position = hitPoint + hitNormal * 0.001f;
 			decals[0].transform.rotation = Quaternion.LookRotation(hitNormal);
+			//decals[0].transform.LookAt();
 			points.Add(hitPoint);
 			//UpdateTrajectory(points.ToArray());
 			//DrawRays(rayCount, reflectedDir);
