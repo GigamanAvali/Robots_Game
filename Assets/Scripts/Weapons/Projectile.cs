@@ -7,12 +7,18 @@ public class Projectile : MonoBehaviour
 	[SerializeField] private GameObject hitPrefab;
 	[SerializeField] private GameObject decalPrefab;
 	public int Damage = 1;
+    private float curTime = 0;
 
-	private void Start()
+    private void Start()
 	{
 	}
 
-	private void OnCollisionEnter(Collision collision)
+    private void Update()
+    {
+		UpdateTimer();
+    }
+
+    private void OnCollisionEnter(Collision collision)
 	{
 		Debug.Log("OnCollisionEnter " + collision.gameObject.name);
 		BaseEntity entity = collision.gameObject.GetComponent<BaseEntity>();
@@ -44,5 +50,20 @@ public class Projectile : MonoBehaviour
 
 		//Destroy(gameObject);
 		gameObject.SetActive(false);
+		curTime = 0;
+
+    }
+	private void UpdateTimer()
+	{
+        curTime += Time.deltaTime;
+
+        if (curTime > 10)
+        {
+			curTime = 0;
+            gameObject.SetActive(false);
+
+
+        }
+
 	}
 }
