@@ -68,7 +68,8 @@ public class Rifle : MonoBehaviour
 			bullet.transform.LookAt(transform);
 			Projectile bulletProjectile = bullet.GetComponent<Projectile>();
 			bulletProjectile.Damage = 1;
-			bullet.AddForce(muzzle.forward * 1.5f, ForceMode.Impulse);
+			bulletProjectile.StartPos = muzzle.position + muzzle.forward;
+			bullet.AddForce(muzzle.forward * 0.01f, ForceMode.Impulse);
 			//bullet.AddForce(transform.up * 2f, ForceMode.Impulse);
 			Invoke(nameof(ResetAtack), atackTimeSec);
 		}

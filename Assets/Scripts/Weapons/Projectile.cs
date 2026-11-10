@@ -6,6 +6,10 @@ public class Projectile : MonoBehaviour
 {
 	[SerializeField] private GameObject hitPrefab;
 	[SerializeField] private GameObject decalPrefab;
+	[SerializeField] private AudioSource audioSource;
+	[SerializeField] private int maxRicochet = 4;
+	public Vector3 StartPos;
+	private int curRicochet = 0;
 	public int Damage = 1;
     private float curTime = 0;
 
@@ -47,12 +51,27 @@ public class Projectile : MonoBehaviour
 			decal.transform.parent = collision.transform;
 			Destroy(decal, 60);
 		}
-
-		//Destroy(gameObject);
-		gameObject.SetActive(false);
+		if (curRicochet < maxRicochet)
+		{
+			curRicochet++;
+			Vector3 incomingDirection = collision.contacts[0].point - StartPos; 
+			Vector3 reflectedDir = Vector3.Reflect(incomingDirection.normalized, collisionNormal); 
+			var bullet = GetComponent<Rigidbody>();
+			bullet.velocity = Vector3.zero;
+			bullet.AddForce(reflectedDir.normalized* 0.01f, ForceMode.Impulse);
+			StartPos = transform.position;
+			if (audioSource != null)
+			{
+				audioSource.Play();
+			}
+		}
+		else
+		{
+			curRicochet = 0;
+			gameObject.SetActive(false);
+		}
 		curTime = 0;
-
-    }
+	}
 	private void UpdateTimer()
 	{
         curTime += Time.deltaTime;
