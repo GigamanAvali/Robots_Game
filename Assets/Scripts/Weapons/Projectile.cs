@@ -9,12 +9,14 @@ public class Projectile : MonoBehaviour
 	[SerializeField] private AudioSource audioSource;
 	[SerializeField] private int maxRicochet = 4;
 	public Vector3 StartPos;
-	private int curRicochet = 0;
 	public int Damage = 1;
+
+	private int curRicochet = 0;
     private float curTime = 0;
 
     private void Start()
 	{
+
 	}
 
     private void Update()
@@ -58,10 +60,11 @@ public class Projectile : MonoBehaviour
 			Vector3 reflectedDir = Vector3.Reflect(incomingDirection.normalized, collisionNormal); 
 			var bullet = GetComponent<Rigidbody>();
 			bullet.velocity = Vector3.zero;
-			bullet.AddForce(reflectedDir.normalized* 0.01f, ForceMode.Impulse);
+			bullet.AddForce(reflectedDir.normalized * 0.01f, ForceMode.Impulse);
 			StartPos = transform.position;
 			if (audioSource != null)
 			{
+				audioSource.Stop();
 				audioSource.Play();
 			}
 		}
