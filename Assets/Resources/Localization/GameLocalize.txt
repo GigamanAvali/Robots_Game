@@ -29,11 +29,10 @@
 			"localizeItems":
 			{
 				"menu_btn_lang":"Русский",
-				"menu_btn_start":"Начать",
-				"menu_btn_tutorial":"Обучение",
-				"menu_btn_settings":"Настройки",
-				"menu_btn_quit":"Выход",
-				"menu_btn_back":"Назад"				
+				"menu_btn_start":"Начать игру",
+				"menu_btn_floor1":"1 этаж",
+				"menu_btn_floor2":"2 этаж",
+				"menu_btn_basement":"Подвал"
 			}
 		},
 	"English":
@@ -41,11 +40,10 @@
 			"localizeItems":
 			{
 				"menu_btn_lang":"English",
-				"menu_btn_start":"Start",
-				"menu_btn_tutorial":"Settings",
-				"menu_btn_settings":"Настройки",
-				"menu_btn_quit":"Quit",
-				"menu_btn_back":"Back"				
+				"menu_btn_start":"Start game",
+				"menu_btn_floor1":"1 floor",
+				"menu_btn_floor2":"2 floor",
+				"menu_btn_basement":"Basement"
 			}
 		}
 	}
