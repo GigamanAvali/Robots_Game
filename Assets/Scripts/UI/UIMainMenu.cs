@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class UIMainMenu : MonoBehaviour
 {
+	[SerializeField] private GameObject startPanel;
+	[SerializeField] private GameObject profilePanel;
 
 	void Start()
 	{
@@ -20,6 +22,26 @@ public class UIMainMenu : MonoBehaviour
 	{
 		Localization.Instance.ChangeLanguage();
 		//Debug.Log(Localization.Instance.Language);
+	}
+
+	public void ShowStartPanel()
+	{
+		startPanel.SetActive(true);
+	}
+
+	public void HideStartPanel()
+	{
+		startPanel.SetActive(false);
+	}
+
+	public void ShowProfilePanel()
+	{
+		profilePanel.SetActive(true);
+	}
+
+	public void HideProfilePanel()
+	{
+		profilePanel.SetActive(false);
 	}
 
 	public void LoadGameScene()
