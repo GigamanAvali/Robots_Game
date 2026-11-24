@@ -31,11 +31,9 @@ public class UIProfileSelector : MonoBehaviour
 
 	public void OnMouseExit()
 	{
-		isNeedRotate = true;
-		isExiting = true;
-		targetRotation = startRotation;
-		animator.SetBool("IsDance", false);
-		//transform.rotation = Quaternion.Euler(0, 300, 0);
+		if (mainMenu.IsPanelOpened)
+			return;
+		StopDance();
 	}
 
 	public void OnMouseDown()
@@ -60,5 +58,14 @@ public class UIProfileSelector : MonoBehaviour
 			}
 			isExiting = false;
 		}
+	}
+
+	public void StopDance()
+	{
+		isNeedRotate = true;
+		isExiting = true;
+		targetRotation = startRotation;
+		animator.SetBool("IsDance", false);
+		//transform.rotation = Quaternion.Euler(0, 300, 0);
 	}
 }
