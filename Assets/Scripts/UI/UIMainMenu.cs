@@ -9,7 +9,14 @@ public class UIMainMenu : MonoBehaviour
 {
 	[SerializeField] private GameObject startPanel;
 	[SerializeField] private GameObject profilePanel;
-
+	private bool isPanelOpened = false;
+	public bool IsPanelOpened
+	{
+		get 
+		{
+			return isPanelOpened;
+		}
+	}
 	void Start()
 	{
 	}
@@ -26,22 +33,30 @@ public class UIMainMenu : MonoBehaviour
 
 	public void ShowStartPanel()
 	{
+		if (isPanelOpened)
+			return;
 		startPanel.SetActive(true);
+		isPanelOpened = true;
 	}
 
 	public void HideStartPanel()
 	{
 		startPanel.SetActive(false);
+		isPanelOpened = false;
 	}
 
 	public void ShowProfilePanel()
 	{
+		if (isPanelOpened)
+			return;
 		profilePanel.SetActive(true);
+		isPanelOpened = true;
 	}
 
 	public void HideProfilePanel()
 	{
 		profilePanel.SetActive(false);
+		isPanelOpened = false;
 	}
 
 	public void LoadGameScene()
