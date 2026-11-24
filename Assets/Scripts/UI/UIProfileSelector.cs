@@ -22,7 +22,9 @@ public class UIProfileSelector : MonoBehaviour
 	}
 	public void OnMouseOver()
 	{
-		isNeedRotate = true;
+        if (mainMenu.IsPanelOpened)
+            return;
+        isNeedRotate = true;
 		Vector3 direction = camera.transform.position - transform.position;
 		direction.y = 0f; // Убираем наклон вверх/вниз
 		targetRotation = Quaternion.LookRotation(direction);
