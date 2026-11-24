@@ -34,14 +34,11 @@
 				"menu_btn_floor1":"1 этаж",
 				"menu_btn_floor2":"2 этаж",
 				"menu_btn_basement":"Подвал",
-<<<<<<< Updated upstream
-				"menu_profile_descr_1":"Меню профеля",
-				"menu_profile_descr_2":"Меню профеля",
+				"menu_profile_descr_1":"Меню профиля",
+				"menu_profile_descr_2":"Меню профиля",
 				"menu_btn_create_profile":"Создать профиля",
-				"menu_btn_back":"Назад"
-=======
+				"menu_btn_back":"Назад",
 				"menu_btn_bedroom":"Спальня"
->>>>>>> Stashed changes
 			}
 		},
 	"English":
@@ -54,14 +51,11 @@
 				"menu_btn_floor1":"1 floor",
 				"menu_btn_floor2":"2 floor",
 				"menu_btn_basement":"Basement",
-<<<<<<< Updated upstream
 				"menu_profile_descr_1":"Menu profile",
 				"menu_profile_descr_2":"Menu profile",
 				"menu_btn_create_profile":"Create profile",
-				"menu_btn_back":"Back"
-=======
+				"menu_btn_back":"Back",
 				"menu_btn_bedroom":"Bedroom"
->>>>>>> Stashed changes
 			}
 		}
 	}
