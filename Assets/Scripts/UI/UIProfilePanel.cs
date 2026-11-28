@@ -32,6 +32,12 @@ public class UIProfilePanel : MonoBehaviour
 			GetProfilesText();
 		}
 		ShowProfiles();
+
+		string originalName = "Gigman_Robots_Game";
+		string encryptedName = TextEncryptor.Encrypt(originalName);
+		Debug.Log("Зашифровано: " + encryptedName);
+		string decryptedName = TextEncryptor.Decrypt(encryptedName);
+		Debug.Log("Расшифровано: " + decryptedName);
 	}
 
 	void Update()
