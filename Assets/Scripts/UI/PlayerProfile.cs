@@ -6,4 +6,5 @@ public class PlayerProfile
 {
 	public string PlayerName;
 	public int Lvl = 0;
+	public float Time = 0;
 }
